@@ -22,18 +22,18 @@
                     </div>
                     <div class="form-group">
                         <label>Aadhar Number:</label>
-                        <input type="text" formControlName="aadhar" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadhar.errors }" />
-                        <div *ngIf="submitted && f.aadhar.errors" class="invalid-feedback">
-                            <div *ngIf="f.aadhar.errors.required">Aadhar Number is required</div>
-                            <div *ngIf="f.aadhar.errors.minlength||f.aadhar.errors.maxlength">Aadhar number must be of 12 characters</div>
+                        <input type="text" formControlName="aadharNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aadharNumber.errors }" />
+                        <div *ngIf="submitted && f.aadharNumber.errors" class="invalid-feedback">
+                            <div *ngIf="f.aadharNumber.errors.required">Aadhar Number is required</div>
+                            <div *ngIf="f.aadharNumber.errors.minlength||f.aadharNumber.errors.maxlength">Aadhar number must be of 12 characters</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Pan Number:</label>
-                        <input type="text" formControlName="pan" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pan.errors }" />
-                        <div *ngIf="submitted && f.pan.errors" class="invalid-feedback">
+                        <input type="text" formControlName="panNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.panNumber.errors }" />
+                        <div *ngIf="submitted && f.panNumber.errors" class="invalid-feedback">
                             <!--<div *ngIf="f.pan.errors.required">Pan Number is required</div>-->
-                            <div *ngIf="f.pan.errors.minlength || f.pan.errors.maxlength">Pan Number must be of 10 characters</div>
+                            <div *ngIf="f.panNumber.errors.minlength || f.panNumber.errors.maxlength">Pan Number must be of 10 characters</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -62,6 +62,18 @@
                         <textarea class="form-control" placeholder="Enter Address here..."></textarea>
                     </div>
                     <div class="form-group">
+                        <label>Pincode:</label>
+                        <input type="text" formControlName="pincode" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>User Name:</label>
+                        <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                        <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                            <div *ngIf="f.userName.errors.required">userName is required</div>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label>Password:</label>
                         <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
@@ -69,14 +81,15 @@
                             <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                         </div>
                     </div>
-                    <div class="form-group">
+
+                   <!-- <div class="form-group">
                         <label>Confirm Password:</label>
                         <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
                         <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
                             <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
                             <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <button class="btn btn-primary">Register</button>
                     </div>
