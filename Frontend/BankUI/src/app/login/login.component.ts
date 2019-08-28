@@ -9,35 +9,32 @@ import { MustMatch } from '../../assets/must-match.validator';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  registerForm: FormGroup;
+  loginForm: FormGroup;
     submitted = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-  }, {
-      validator: MustMatch('password', 'confirmPassword')
+    this.loginForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      
+      password: ['', [Validators.required]],
+      
   });
   }
   
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+    get f() { return this.loginForm.controls; }
 
     onSubmit() {
       this.submitted = true;
 
       // stop here if form is invalid
-      if (this.registerForm.invalid) {
+      if (this.loginForm.invalid) {
           return;
       }
 
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value))
   }
 
 }

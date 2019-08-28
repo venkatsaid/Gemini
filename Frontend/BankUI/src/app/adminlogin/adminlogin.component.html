@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h3>Customer Login</h3>
+                <h3>Admin Login</h3>
                 <br>
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <label>User Name</label>
                         <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
@@ -25,12 +25,10 @@
                     </div>
                     
                     <div class="form-group">
-                        <button class="btn btn-primary">Login</button>
+                        <button class="btn btn-primary">AdminLogin</button>
                         
                     </div>
-                     <div class="form-group">
-                        <a  routerLink="/adminlogin" routerLinkActive="active" >Bank User? Click Here</a>
-                    </div>
+
                 </form>
             </div>
         </div>

@@ -8,13 +8,15 @@ import { LoginComponent } from './login/login.component';
 import { from } from 'rxjs';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,
