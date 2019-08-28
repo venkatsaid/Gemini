@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
           return;
       }
       this.PostCall();
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
+      // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
   }
   PostCall(){
     this.objHttp.post("http://172.20.1.8:8100/web/add",

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import custom validator to validate that password and confirm password fields match
 import { MustMatch } from '../../assets/must-match.validator';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +13,8 @@ import { MustMatch } from '../../assets/must-match.validator';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
     submitted = false;
-
-  constructor(private formBuilder: FormBuilder) { }
+    public status:string = "";
+  constructor(private formBuilder: FormBuilder,private objHttp:HttpClient,private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -33,8 +35,34 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.invalid) {
           return;
       }
-
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value))
+      this.PostCall();
+      
+  }
+  PostCall(){
+    let par= new HttpParams();
+    par=par.set('userName',this.loginForm.value.userName);
+    par=par.set('pass',this.loginForm.value.password);
+    this.objHttp.post("http://172.20.1.8:8100/bankapi/login", par
+        )
+        .toPromise() 
+        .then(
+            data => {
+                console.log("POST Request is successful ", data);
+                if(data)
+                {
+                  console.log("homepage");
+                  this.router.navigate(['custhome']);
+                }
+                else{
+                  console.log("error");
+                }
+                this.status = "POST Request is successful";
+            },
+            error => {
+                console.log("Error", error);
+                this.status = "Error";
+            }
+        );    
   }
 
 }

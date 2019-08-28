@@ -9,6 +9,9 @@ import { from } from 'rxjs';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { CustomerhomeComponent } from './customerhome/customerhome.component';
+// import {TransfermainComponent} from './transfermain/transfermain.component';
+// import {TransferComponent} from './transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,17 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    CustomerhomeComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // TransfermainComponent,
+    // TransferComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
