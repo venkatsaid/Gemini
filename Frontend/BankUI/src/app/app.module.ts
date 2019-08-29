@@ -10,9 +10,16 @@ import { LoginComponent } from './login/login.component';
 import { from } from 'rxjs';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+<<<<<<< HEAD
 import { TransfermainComponent } from './transfermain/transfermain.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { TranfertomeComponent } from './tranfertome/tranfertome.component';
+=======
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { CustomerhomeComponent } from './customerhome/customerhome.component';
+// import {TransfermainComponent} from './transfermain/transfermain.component';
+// import {TransferComponent} from './transfer/transfer.component';
+>>>>>>> 68821c54c1382b25f3d4ff369b248574f6a7873e
 
 @NgModule({
   declarations: [
@@ -20,9 +27,15 @@ import { TranfertomeComponent } from './tranfertome/tranfertome.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+<<<<<<< HEAD
     TransfermainComponent,
     TransferComponent,
     TranfertomeComponent
+=======
+    AdminloginComponent,
+    CustomerhomeComponent,
+    
+>>>>>>> 68821c54c1382b25f3d4ff369b248574f6a7873e
   ],
   imports: [
     BrowserModule,
@@ -30,7 +43,12 @@ import { TranfertomeComponent } from './tranfertome/tranfertome.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+<<<<<<< HEAD
     RouterModule
+=======
+    // TransfermainComponent,
+    // TransferComponent
+>>>>>>> 68821c54c1382b25f3d4ff369b248574f6a7873e
   ],
   providers: [],
   bootstrap: [AppComponent]
