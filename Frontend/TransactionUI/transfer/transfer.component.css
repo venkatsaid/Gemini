@@ -1,0 +1,83 @@
+
+	
+ 
+		* {box-sizing: border-box; font-size: 15px;}
+		/* Full-width input fields */
+		  input[type=text] {
+		    width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+		}
+
+		input[type=text]:focus:focus {
+		  background-color: #ddd;
+		  outline: none;
+		}
+
+		hr {
+		  border: 1px solid #f1f1f1;
+		  margin-bottom: 25px;
+		}
+
+		/* Set a style for all buttons */
+		button {
+		  background-color: #2196F3;
+		  color: white;
+		  padding: auto;
+		  height: 6vh;
+		  border: none;
+		  cursor: pointer;
+		  width: 100%;
+		  opacity: 0.9;
+
+		}
+
+		button:hover {
+		  opacity:1;
+		}
+
+        /* Float signup buttons */
+		 .signupbtn {
+		  margin: auto;
+		  width: 50%;
+		}
+
+		/* Add padding to container elements */
+		.container {
+		  padding: 10vh auto;
+		  margin: auto;
+		}
+
+		/* Clear floats */
+		.clearfix::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		  visibility: hidden;
+		}
+
+		.sign-up {
+			width: 100%;
+			border: 2px;
+			border-radius: 25px;
+			background-color: white;
+			margin: auto;
+			padding: 5vh 5vh 3vh 5vh;
+		}
+
+		/* Change styles for cancel button and signup button on extra small screens */
+		@media only screen and (max-width: 600px) {
+		  .signupbtn {
+		    width: 100%;
+		  }
+
+		  .sign-up {
+		  	width: 100%;
+		  	margin: 0;
+		  }
+		}
+		
+	
