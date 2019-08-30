@@ -1,4 +1,4 @@
-package com.bankgemini.mail;
+package com.bankgemini.controller;
 
 import javax.mail.internet.MimeMessage;
 

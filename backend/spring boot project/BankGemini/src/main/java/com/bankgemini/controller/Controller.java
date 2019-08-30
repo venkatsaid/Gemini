@@ -1,4 +1,4 @@
-package com.bankgemini.customer;
+package com.bankgemini.controller;
 
 
 import java.math.BigDecimal;
@@ -24,13 +24,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bankgemini.account.Account;
 import com.bankgemini.account.AccountDao;
+import com.bankgemini.customer.Customer;
+import com.bankgemini.customer.CustomerDao;
 import com.bankgemini.transaction.Transaction;
 import com.bankgemini.transaction.TransactionDao;
 
 @RestController
 @RequestMapping("/bankapi")
 @CrossOrigin("*")
-public class CustomerController {
+public class Controller {
 	@Autowired
 	CustomerDao customerDao;
 	@Autowired
@@ -40,13 +42,13 @@ public class CustomerController {
 	@Autowired
 	private JavaMailSender sender;
 	
-	public CustomerController() {
+	public Controller() {
 		super();
 		
 		
 	}
 	
-	
+	//Customer apis
 	
 	@PostMapping("/customer/add")
 	public Customer createCustomer(@Valid @RequestBody Customer customer ) {
@@ -137,7 +139,7 @@ public class CustomerController {
 	
 	
 	//################################################################################3
-	//Accounts
+	//Accounts api 
 	
 	@GetMapping("/account/getAll")
 	public List<Account> displayAccounts() {
@@ -181,8 +183,8 @@ public class CustomerController {
 	
 	
 
-	
-	//Transaction
+	//#######################3333#
+	//Transaction API
 	
 	@GetMapping("/transaction/getall")
 	public List<Transaction> displayTransactions() {
@@ -209,8 +211,8 @@ public class CustomerController {
 	@PostMapping("/transaction/add") public Transaction createTransactionbyParams(@RequestParam BigDecimal amount,Long fromaccount,Long toaccount,String description) {
 
 		Transaction transaction= new Transaction();
-		
-		
+
+
 		transaction.setDescription(description); //
 		transaction.setFromAccount(accountDao.findByaccountNumber(fromaccount)); //
 		transaction.setToAccount(accountDao.findByaccountNumber(toaccount));
@@ -220,39 +222,41 @@ public class CustomerController {
 
 		MathContext mc = new MathContext(2); // 2 precision 
 		BigDecimal chk=(BigDecimal) fromaccount1.getAccountBalance().subtract(amount,mc);		
-				if(chk.compareTo(transactionDao.minamount)==0 || chk.compareTo(transactionDao.minamount)==1 ) { 
-					
-					transaction.setAmount(amount);  
-					transaction.setDescription(description);
-					transaction.setFromAccount(fromaccount1);
-					transaction.setToAccount(toaccount1);
-					transaction.setTransactionType("DEBIT");
-					transaction.setTransactionStatus("SUCCESS");
-					
+		if(chk.compareTo(transactionDao.minamount)==0 || chk.compareTo(transactionDao.minamount)==1 ) { 
 
-							if(transaction.getAmount().compareTo(transactionDao.flagamount)==1) {
+			transaction.setAmount(amount);  
+			transaction.setDescription(description);
+			transaction.setFromAccount(fromaccount1);
+			transaction.setToAccount(toaccount1);
+			transaction.setTransactionType("DEBIT");
+			transaction.setTransactionStatus("SUCCESS");
 
-								transaction.setFlag(true); 
-								} 
-							try { 
-									
-									
 
-								}catch(Exception ex) { 
-								
-								}
+			if(transaction.getAmount().compareTo(transactionDao.flagamount)==1) {
 
-								return transactionDao.save(transaction); 
-								} 
-				else {
+				transaction.setFlag(true); 
+			}
+			
+			Transaction trans1= transactionDao.save(transaction);
+			try { 
+				sendEmailFromAccount(trans1);
+				sendEmailToAccount(trans1);
 
-									
-									return null; 
-									}
-				}
-	 
-	
-	
+			}catch(Exception ex) { 
+
+			}
+
+			return trans1; 
+		} 
+		else {
+
+
+			return null; 
+		}
+	}
+
+
+
 	private void sendEmailCustomerAdd(String email,String userName,String password) throws Exception{
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
