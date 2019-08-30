@@ -1,0 +1,6 @@
+<app-custhomenav></app-custhomenav>
+<ul>
+        <li *ngFor="let item of details;">
+            <b>TransactionId :</b>{{item.transactionId}} <b>From Account :</b> {{item.fromAccount.accountNumber}} <b>To Account :</b> {{item.toAccount.accountNumber}} <b>Amount :</b> {{item.amount}} <b>Date :</b> {{item.createdAt}}
+        </li>
+      </ul>

@@ -1,0 +1,51 @@
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+          <div class="container-fluid px-0">
+            <div class="row w-100">
+              <div class="col-2">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" (click)="isShown = !isShown" >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+        
+              <div class="col-10">
+
+
+                <div class="collapse justify-content-end navbar-collapse" [ngClass]="{ 'show': isShown }" id="navbarTogglerDemo03">
+                  <ul class="navbar-nav nav-menu-container mt-2 mt-lg-0">
+                  
+                      <li class="nav-item">
+                          <a class="nav-link" routerLink="/adminhome" routerLinkActive="active"  (click)="isShown = false" >Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/register" routerLinkActive="active" (click)="isShown = false" >Create Account</a>
+                          </li>
+
+                          <li class="nav-item">
+                              <a class="nav-link" routerLink="/edit" routerLinkActive="active" (click)="isShown = false" >Edit Customers</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="/transactions" routerLinkActive="active" (click)="isShown = false" >View All Transactions</a>
+                              </li>  
+
+                   
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" (click)="logout()">Logout</a>    
+                      </li>
+                    
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" routerLink="/register" routerLinkActive="active" (click)="isShown = false" >Register</a>
+                    </li> -->
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        
+       
+        
+        
