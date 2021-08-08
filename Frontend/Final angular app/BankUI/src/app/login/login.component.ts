@@ -58,7 +58,7 @@ this.authService.logout();
         )
         .toPromise() 
         .then(
-            data => {
+            (data : any) => {
                 console.log("POST Request is successful ", data);
                 if(data)
                 {

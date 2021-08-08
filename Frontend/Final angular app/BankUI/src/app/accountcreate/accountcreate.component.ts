@@ -5,6 +5,7 @@ import { MustMatch } from '../../assets/must-match.validator';
 
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Router } from '@angular/router';
+import { customer } from '../customer';
 
 
 @Component({
@@ -42,10 +43,11 @@ accountForm: FormGroup;
     par=par.set('customerId',this.id);
     par=par.set('accountBalance',this.accountForm.value.accountBalance);
     par=par.set('accountType',this.accountForm.value.accountType);
+    data: customer;
     this.objHttp.post("http://localhost:8100/bankapi/account/add", par)
         .toPromise() 
         .then(
-            data => {
+            (data : any) => {
                 //console.log("POST Request is successful ", data);
                 this.status = "POST Request is successful";
                 localStorage.setItem('admincustid',data.customerId);

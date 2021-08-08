@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
         )
         .toPromise() 
         .then(
-            data => {
+            (data : any) => {
                 console.log("POST Request is successful ", data);
                 this.status = "POST Request is successful";
                 localStorage.setItem('admincustid',data.customerId);
